@@ -2,6 +2,7 @@ import express from "express";
 const app = express();
 import mongoose from "mongoose";
 import Game from "./models/Games.js";
+import gameRoutes from "./routes/gameRoutes.js";
 
 // Conexão com banco de dados
 mongoose.connect("mongodb://127.0.0.1:27017/api-the-games");
