@@ -1,6 +1,6 @@
 import Game from "../models/Games.js";
 import gameService from "../services/gameServices.js";
-import { ObjectId, ObjectIds } from "mongodb";
+import { ObjectId } from "mongodb";
 
 const getAllGames = async (req, res) => {
     try{
@@ -47,7 +47,7 @@ const updateGame = async(req, res) => {
         if(ObjectId.isValid(req.params.id)){
             const id = req.params.id;
             const {title, plataform, year, price} = req.body
-            const game = gameService.Update(title, plataform, year, price)
+            const game = await gameService.Update(title, plataform, year, price)
             res.status(200).json({ game })
         }else{
             res.sendStatus(400); // Bad Request 400
@@ -78,4 +78,4 @@ const getOneGame = async(req,res)=>{
     }
 }
 
-export default { getAllGames, createGame, deleteGame, getOneGame }
+export default { getAllGames, createGame, deleteGame, updateGame, getOneGame }
