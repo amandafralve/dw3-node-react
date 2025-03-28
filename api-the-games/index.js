@@ -3,13 +3,15 @@ const app = express();
 import mongoose from "mongoose";
 import Game from "./models/Games.js";
 import gameRoutes from "./routes/gameRoutes.js";
+import "./config/db-connection.js";
 
 // Conexão com banco de dados
-mongoose.connect("mongodb://127.0.0.1:27017/api-the-games");
+// mongoose.connect("mongodb://127.0.0.1:27017/api-the-games");
 
 // Configuração do express
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use("/", gameRoutes)
 
 // ROTA PRINCIPAL
 app.get("/", (req, res) => {
