@@ -1,5 +1,5 @@
 
-const Descriptions = (propss) => {
+const Descriptions = (props) => {
     // props = {} é um objeto
     // props = propriedades
     return (

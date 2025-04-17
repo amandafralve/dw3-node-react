@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const from = () => {
+const Form = () => {
     // Estados
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
@@ -13,21 +13,20 @@ const from = () => {
         console.log(name, email)
     }
 
-
-
     return(
         <>
         <h1>Formulário de Cadastro</h1>
         <br />
-        <form action="onSubmit">
+        <form onSubmit={handleSubmit}>
             <input type="text" 
             placeholder="Digite seu nome"
             onChange={(event) => setName(e.target.value)}
             />
             <br />
             <input type="email" 
-            placeholder="Digite seu email"/>
+            placeholder="Digite seu email"
             onChange={(event) => setEmail(e.target.value)}
+            />
             <br /><br />
             <button type="submit">Cadastrar</button>
             <br /><br />

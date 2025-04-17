@@ -1,11 +1,12 @@
-import Descriptions from "@/components/Descriptions";
+import Descriptions from "@/componentes/Descriptions";
 import Parent from "@/components/Parent";
 import User from "@/components/User";
 import Welcome from "@/components/Welcome";
 import Head from "next/head";
-import Form from "@/componentes/form";
+import Form from "@/componentes/Form";
 import Dog from "@/componentes/Dog";
 import Counter from "@/componentes/Counter";
+import Tasklist from "@/componentes/Tasklist/TaskList";
 
 export default function Home() {
   return (
@@ -30,6 +31,33 @@ export default function Home() {
         {/* Contador */}
         <Counter />
         <Form />
+        <br /><br />
+        {/* Passando a lista de tarefa por Props */}
+        <Tasklist 
+          tasks={[
+            {
+              id:1,
+              text: "Estudar React"
+            },
+            {
+              id: 2,
+              text: "Pagar boletos"
+            },
+            {
+              id: 3,
+              text: "Retirar o lixo"
+            },
+            {
+              id: 4,
+              text: "Lavar Roupa"
+            }
+          ]}
+        />
+        <br />
+        <br />
+        <br />
+        
+        
       </main>
     </>
   );
